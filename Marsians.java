@@ -13,48 +13,44 @@ public class Marsians {
       Marsians obj = new Marsians();
 
       obj.similary_check();
-      for (int i = 1; ; i++) {
+      for (int i = 1;; i++) {
          // Создаем случайные позиции боксов
-         if (i%6==0) {
-             obj.similary_check();
+         if (i % 6 == 0) {
+            obj.similary_check();
+            System.out.println();
             System.out.println("О нет! Все ящики почувствовали что их пытаются найти! Теперь они разбежались по разным местам :(");
             System.out.println("Теперь придётся искать их снова -_-");
+            System.out.println();
          }
 
-          // Вводим значения для проверки
+         // Вводим значения для проверки
+         System.out.println("Введите позицию ящиков для угадывания:");
+         int Checking_for_guessing_position = obj.scanner.nextInt();
+         int Checking_for_guessing_position1 = obj.scanner.nextInt();
+         int Checking_for_guessing_position2 = obj.scanner.nextInt();
+         
+         // Проверяем, угаданы ли позиции
+         boolean ifGuessIsRight = (Checking_for_guessing_position == obj.randomPosisionOfBoxes) ||
+               (Checking_for_guessing_position == obj.randomPosisionOfBoxes1) ||
+               (Checking_for_guessing_position == obj.randomPosisionOfBoxes2);
+               
+         boolean ifGuessIsRight1 = (Checking_for_guessing_position1 == obj.randomPosisionOfBoxes) ||
+               (Checking_for_guessing_position1 == obj.randomPosisionOfBoxes1) ||
+               (Checking_for_guessing_position1 == obj.randomPosisionOfBoxes2);
 
-      System.out.println("Введите позицию ящиков для угадывания:");
-      int Checking_for_guessing_position = obj.scanner.nextInt();
-      int Checking_for_guessing_position1 = obj.scanner.nextInt();
-      int Checking_for_guessing_position2 = obj.scanner.nextInt();
-      // Проверяем, угаданы ли позиции
-      boolean ifGuessIsRight = (Checking_for_guessing_position == obj.randomPosisionOfBoxes) ||
-            (Checking_for_guessing_position == obj.randomPosisionOfBoxes1) ||
-            (Checking_for_guessing_position == obj.randomPosisionOfBoxes2);
-      boolean ifGuessIsRight1 = (Checking_for_guessing_position1 == obj.randomPosisionOfBoxes) ||
-            (Checking_for_guessing_position1 == obj.randomPosisionOfBoxes1) ||
-            (Checking_for_guessing_position1 == obj.randomPosisionOfBoxes2);
-      boolean ifGuessIsRight2 = (Checking_for_guessing_position2 == obj.randomPosisionOfBoxes) ||
-            (Checking_for_guessing_position2 == obj.randomPosisionOfBoxes1) ||
-            (Checking_for_guessing_position2 == obj.randomPosisionOfBoxes2);
+         boolean ifGuessIsRight2 = (Checking_for_guessing_position2 == obj.randomPosisionOfBoxes) ||
+               (Checking_for_guessing_position2 == obj.randomPosisionOfBoxes1) ||
+               (Checking_for_guessing_position2 == obj.randomPosisionOfBoxes2);
 
-      // Выводим результат
-      if (ifGuessIsRight && ifGuessIsRight1 && ifGuessIsRight2) {
-         System.out.println("Угадал все!");
-         break;
-      } else if ((ifGuessIsRight && ifGuessIsRight1) ||
-                 (ifGuessIsRight && ifGuessIsRight2) ||
-                 (ifGuessIsRight1 && ifGuessIsRight2)) {
-         System.out.println("Угадал 2 позиции!");
-      } else if (ifGuessIsRight ||
-            ifGuessIsRight1 ||
-            ifGuessIsRight2) {
-               System.out.println("Угадал 1 позицию");}
-         else {
-            System.out.println("Ничего не угадал! А жаль...");
+         // Выводим результат
+         obj.announcment_about_tries(ifGuessIsRight, ifGuessIsRight1, ifGuessIsRight2);
+
+         if (ifGuessIsRight && ifGuessIsRight1 && ifGuessIsRight2) {
+            break;
          }
       }
-      }
+   }
+
    // Метод для создания случайных позиций боксов
    public void similary_check() {
       Random rand = new Random();
@@ -81,6 +77,20 @@ public class Marsians {
          if (randomPosisionOfBoxes == randomPosisionOfBoxes2) {
             randomPosisionOfBoxes = 1 + rand.nextInt(6);
          }
+      }
+   }
+
+   public void announcment_about_tries(boolean ifGuessIsRight, boolean ifGuessIsRight1, boolean ifGuessIsRight2) {
+      if (ifGuessIsRight && ifGuessIsRight1 && ifGuessIsRight2) {
+         System.out.println("Вы угадали все 3 позиции!");
+      } else if ((ifGuessIsRight && ifGuessIsRight1) ||
+            (ifGuessIsRight && ifGuessIsRight2) ||
+            (ifGuessIsRight1 && ifGuessIsRight2)) {
+         System.out.println("Вы угадали 2 позиции!");
+      } else if (ifGuessIsRight || ifGuessIsRight1 || ifGuessIsRight2) {
+         System.out.println("Вы угадали 1 позицию.");
+      } else {
+         System.out.println("Вы ничего не угадали! Попробуйте снова.");
       }
    }
 }

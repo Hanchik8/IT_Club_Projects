@@ -12,15 +12,21 @@ public class Marsians {
    public static void main(String[] args) {
       Marsians obj = new Marsians();
 
-      // Создаем случайные позиции боксов
       obj.similary_check();
+      for (int i = 1; ; i++) {
+         // Создаем случайные позиции боксов
+         if (i%6==0) {
+             obj.similary_check();
+            System.out.println("О нет! Все ящики почувствовали что их пытаются найти! Теперь они разбежались по разным местам :(");
+            System.out.println("Теперь придётся искать их снова -_-");
+         }
 
-      // Вводим значения для проверки
+          // Вводим значения для проверки
+
       System.out.println("Введите позицию ящиков для угадывания:");
       int Checking_for_guessing_position = obj.scanner.nextInt();
       int Checking_for_guessing_position1 = obj.scanner.nextInt();
       int Checking_for_guessing_position2 = obj.scanner.nextInt();
-
       // Проверяем, угаданы ли позиции
       boolean ifGuessIsRight = (Checking_for_guessing_position == obj.randomPosisionOfBoxes) ||
             (Checking_for_guessing_position == obj.randomPosisionOfBoxes1) ||
@@ -35,6 +41,7 @@ public class Marsians {
       // Выводим результат
       if (ifGuessIsRight && ifGuessIsRight1 && ifGuessIsRight2) {
          System.out.println("Угадал все!");
+         break;
       } else if ((ifGuessIsRight && ifGuessIsRight1) ||
                  (ifGuessIsRight && ifGuessIsRight2) ||
                  (ifGuessIsRight1 && ifGuessIsRight2)) {
@@ -47,8 +54,7 @@ public class Marsians {
             System.out.println("Ничего не угадал! А жаль...");
          }
       }
-
-
+      }
    // Метод для создания случайных позиций боксов
    public void similary_check() {
       Random rand = new Random();

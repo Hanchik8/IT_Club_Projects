@@ -18,13 +18,13 @@ public class Marsians {
          if (i % 6 == 0) {
             obj.similary_check();
             System.out.println();
-            System.out.println("О нет! Все ящики почувствовали что их пытаются найти! Теперь они разбежались по разным местам :(");
-            System.out.println("Теперь придётся искать их снова -_-");
+            System.out.println("Oh no! All the boxes felt that they were trying to find them! Now they fled to different places :(");
+            System.out.println("Now I'll have to look for them again -_-");
             System.out.println();
          }
 
          // Вводим значения для проверки
-         System.out.println("Введите позицию ящиков для угадывания:");
+         System.out.println("Enter the position of the boxes for guessing:");
          int Checking_for_guessing_position = obj.scanner.nextInt();
          int Checking_for_guessing_position1 = obj.scanner.nextInt();
          int Checking_for_guessing_position2 = obj.scanner.nextInt();
@@ -82,15 +82,15 @@ public class Marsians {
 
    public void announcment_about_tries(boolean ifGuessIsRight, boolean ifGuessIsRight1, boolean ifGuessIsRight2) {
       if (ifGuessIsRight && ifGuessIsRight1 && ifGuessIsRight2) {
-         System.out.println("Вы угадали все 3 позиции!");
+         System.out.println("You guessed all 3 positions!");
       } else if ((ifGuessIsRight && ifGuessIsRight1) ||
             (ifGuessIsRight && ifGuessIsRight2) ||
             (ifGuessIsRight1 && ifGuessIsRight2)) {
-         System.out.println("Вы угадали 2 позиции!");
+         System.out.println("You guessed 2 positions!");
       } else if (ifGuessIsRight || ifGuessIsRight1 || ifGuessIsRight2) {
-         System.out.println("Вы угадали 1 позицию.");
+         System.out.println("You guessed 1 position.");
       } else {
-         System.out.println("Вы ничего не угадали! Попробуйте снова.");
+         System.out.println("You didn't guess anything! Try again.");
       }
    }
 }

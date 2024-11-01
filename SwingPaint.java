@@ -64,8 +64,8 @@ public class SwingPaint {
 
       clearBtn = new JButton("Clear");
       clearBtn.addActionListener(actionListener);
-      JButton saveBtn = new JButton("Save");
-      saveBtn.addActionListener(e -> drawArea.saveImage()); // Calls saveImage() in DrawArea
+      saveBtn = new JButton("Save");
+      saveBtn.addActionListener(e -> drawArea.saveImage()); // сalls saveImage() in DrawArea
       frame.add(saveBtn, BorderLayout.SOUTH);
       blackBtn = new JButton("Black");
       blackBtn.addActionListener(actionListener);

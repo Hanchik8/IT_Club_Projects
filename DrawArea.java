@@ -93,7 +93,6 @@ public class DrawArea extends JComponent {
    }
 
    public void red() {
-      // apply red color on g2 context
       g2.setPaint(Color.red);
    }
 

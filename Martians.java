@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Marsians {
+public class Martians {
    // переменные, доступные во всех методах класса
    int randomPosisionOfBoxes;
    int randomPosisionOfBoxes1;
@@ -10,7 +10,7 @@ public class Marsians {
    Scanner scanner = new Scanner(System.in);
 
    public static void main(String[] args) {
-      Marsians obj = new Marsians();
+      Martians obj = new Martians();
 
       obj.similary_check();
       for (int i = 1;; i++) {
